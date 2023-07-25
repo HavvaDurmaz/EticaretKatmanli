@@ -1,0 +1,33 @@
+﻿<div class="col-md-12" style="margin-top:25px;">
+    <div class="row">
+        <div class="col-md-4"></div>
+
+
+        <div class="col-md-4">
+            <h1 style="text-align:center">KAYIT OL</h1>
+
+            <form action="/Musteri/KayitOl" method="post">
+
+                <input type="text" class="form-control" name="NameSurName" placeholder="Adınız Soyadınız : " style="margin-bottom:10px;" required />
+
+                <input type="text" class="form-control" name="Email" placeholder="Email : " style="margin-bottom:10px;" required />
+
+                <input type="text" class="form-control" name="Passwords" placeholder="Şifreniz : " style="margin-bottom:10px;" required />
+
+                <input type="text" class="form-control" name="Phone" placeholder="Telefon Numaranız : " style="margin-bottom:10px;" required />
+
+
+                <button type="submit" class="form-control btn btn-success" style="margin-bottom:10px;">Kayıt İşlemini Tamamla</button>
+                <a href="/Musteri/Giris" class="form-control btn btn-primary" style="margin-bottom:10px;">Giriş Yapmak için Tıklayınız.</a>
+
+            </form>
+
+            @Html.Raw(ViewBag.Message)
+
+
+        </div>
+
+
+        <div class="col-md-4"></div>
+    </div>
+</div>

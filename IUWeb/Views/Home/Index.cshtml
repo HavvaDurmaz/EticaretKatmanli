@@ -1,0 +1,14 @@
+﻿@foreach (var item in Model)
+{
+    <div class="col-md-3">
+        <div class="col-md-12 card" style="text-align:center">
+            <img src="/images/@item.ImagesHome" width="100%" />
+            <div class="card-body">
+                <div class="card-title" style="padding: 10px; font-size: 20px; font-weight: bold; text-align: center;padding-bottom:0;">@item.ProductName</div>
+                <div class="card-text" style="padding:10px;font-size:22px;font-weight:bold;text-align:center;padding-top:0">@Html.Raw(Convert.ToDecimal(item.Price).ToString("N")) TL</div>
+                <button type="button" class="btn btn-primary" onclick="SepeteEkleJS(@item.Id)" >Sepete Ekle</button>
+                <a href="/Urun/Detay/@item.Id" class="btn btn-defaul">Ürün Detay</a>
+            </div>
+        </div>
+    </div>
+}

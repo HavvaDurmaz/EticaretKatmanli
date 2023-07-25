@@ -1,0 +1,45 @@
+﻿<script>
+    $(document).ready(function myfunction() {
+        $(".KucukResim").hover(function () {
+            var AlinanResimAdresi = $(this).attr("src");
+            $("#BuyukResim").attr("src", AlinanResimAdresi);
+        });
+    });
+</script>
+<div class="col-md-12">
+    <div class="row">
+        <div class="col-md-1"></div>
+        <div class="col-md-5">
+            <div class="col-md-12">
+                <div class="row">
+                    <img src="/images/@Model.ImagesHome" width="100%" id="BuyukResim" style="border: solid 0.3mm #ebebeb;" />
+                </div>
+                <div class="row" style="margin-top:10px;">
+                    <img src="/images/@Model.ImagesHome" width="100%" class="KucukResim" style="width: 25%; border: solid 0.3mm #ebebeb;cursor:pointer" />
+                    @if (Model.ImagesDetail != "0")
+                    {
+                        <img src="/images/@Model.ImagesDetail" width="100%" class="KucukResim" style="width: 25%; border: solid 0.3mm #ebebeb; cursor: pointer" />
+                    }
+                    @if (Model.ImagesDetail2 != "0")
+                    {
+                        <img src="/images/@Model.ImagesDetail2" width="100%" class="KucukResim" style="width: 25%; border: solid 0.3mm #ebebeb; cursor: pointer " />
+                    }
+                    @if (Model.ImagesDetail3 != "0")
+                    {
+                        <img src="/images/@Model.ImagesDetail3" width="100%" class="KucukResim" style="width: 25%; border: solid 0.3mm #ebebeb; cursor: pointer" />
+                    }
+                </div>
+            </div>
+        </div>
+        <div class="col-md-5" style="padding-left:25px;">
+
+            <h2 style="text-align:center;">@Model.ProductName</h2>
+            <h4>@Html.Raw(Convert.ToDecimal(Model.Price).ToString("N")) TL</h4>
+            <button type="button" class="btn btn-primary">Sepete Ekle</button>
+            <div style="margin-top:25px;">
+                @Html.Raw(Model.Explanation)
+            </div>
+        </div>
+        <div class="col-md-2"></div>
+    </div>
+</div>

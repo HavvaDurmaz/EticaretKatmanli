@@ -1,0 +1,21 @@
+﻿<h2 style="margin-top:15px;margin-bottom:15px;">KATEGORİ YÖNETİMİ</h2>
+
+<a href="/admin/KategoriYonetim" class="btn btn-primary" style="margin-top:15px;">Geri Git</a>
+
+<form action="/admin/KategoriYonetim/Insert" method="post" style="margin-top:15px;">
+
+    <input type="text" name="CategoryName" placeholder="Kategori Adı" class="form-control" style="margin-bottom:15px;" />
+
+    <select class="form-control" name="Status" style="margin-bottom:15px;">
+        <option value="1">Aktif</option>
+        <option value="0">Pasif</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary" style="margin-top:15px;margin-bottom:15px;"> Yeni Ekle</button>
+
+</form>
+
+@if (ViewBag.Message != null)
+{
+    <div style="margin-top:15px;">@Html.Raw(ViewBag.Message)</div>
+}

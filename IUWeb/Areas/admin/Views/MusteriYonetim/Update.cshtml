@@ -1,0 +1,35 @@
+﻿<h2 style="margin-top:15px;margin-bottom:15px;">MÜŞTERİ YÖNETİMİ</h2>
+
+<a href="/admin/MusteriYonetim" class="btn btn-primary" style="margin-top:15px;">Geri Git</a>
+
+<form action="/admin/MusteriYonetim/Insert" method="post" style="margin-bottom:15px;margin-top:25px;">
+
+
+    <input type="text" class="form-control" style="margin-bottom:15px;" name="NameSurName" placeholder="Ad Soyad" />
+
+    <input type="text" class="form-control" style="margin-bottom:15px;" name="Email" placeholder="Email" />
+
+    <input type="text" class="form-control" style="margin-bottom:15px;" name="Phone" placeholder="telefon" />
+
+    <input type="text" class="form-control" style="margin-bottom:15px;" name="passwords" placeholder="Şifre" />
+
+
+    <select name="Status" class="form-control" style="margin-bottom:15px;">
+        <option value="True">Aktif</option>
+        <option value="False">Pasif</option>
+    </select>
+
+    <select name="Roles" class="form-control" style="margin-bottom:15px;">
+        <option value="Admin">Admin</option>
+        <option value="SatisTemsilcisi">SatisTemsilcisi</option>
+        <option value="user">user</option>
+    </select>
+
+    <button type="submit" class="btn btn-primary"> Kaydet</button>
+</form>
+
+
+@if (ViewBag.Message != null)
+{
+    <div style="margin-top:15px;">@Html.Raw(ViewBag.Message)</div>
+}

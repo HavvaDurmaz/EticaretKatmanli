@@ -1,0 +1,100 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/bootstrap/js/bootstrap.min.js"></script>
+    <script src="~/jquery/jquery.min.js"></script>
+    <title>@ViewBag.Title</title>
+
+    <script>
+        $(document).ready(function(){
+            $("#SepetLink").load("/Sepet/SepettekiUrunSayisi")
+        })
+
+        function SepeteEkleJs(id)
+        {$.ajax({
+            type: "POST",
+            url: "/sepet/SepeteEkle",
+            data: {"ProductId: id"},
+            success: function (response)
+            {
+                    $("#SepetLink").load("/Sepet/SepettekiUrunSayisi")
+                alert(response);
+            },
+            error: function(){
+            }
+        });
+        }
+        function AdetKontrol(id, islemTipi) {
+            $.ajax({
+                type: "POST",
+                url: "/sepet/AdetEkleCikar",
+                data: { "TemporaryId": id, "ArttirmaEksiltme": islemTipi },
+                success: function (response) {
+                    $("#SepetLink").load("/Sepet/SepettekiUrunSayisi")
+                    $("#Sepet").load("/Sepet/SepetListele"); // Her işlem yaptığında Sadece Sepeti Yenilesin REFRESH
+                },
+                error: function () {
+
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container" style="margin-top:25px;">
+        <div class="row">
+            <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="javascript:void(0)">Logo</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mynavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="mynavbar">
+                        <ul class="navbar-nav me-auto">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/">Anasayfa</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Teknoloji</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="javascript:void(0)">Ev Aletleri</a>
+                            </li>
+                        </ul>
+                        <div class="d-flex">
+                            <ul class="navbar-nav me-auto">                              
+                                <li class="nav-item">
+                                    <a class="nav-link" href="/Sepet" id="SepetLink"></a>
+                                </li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Musteri/Logout">Çıkış Yap</a>
+                                    </li>
+                                }
+                                else
+                                {
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/Musteri/Giris">Giriş/Kayıt</a>
+                                    </li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+
+
+    <div class="container" style="margin-top:25px;margin-bottom:25px;">
+        <div class="row">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

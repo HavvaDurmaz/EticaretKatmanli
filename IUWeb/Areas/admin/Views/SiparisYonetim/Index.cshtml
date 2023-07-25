@@ -1,0 +1,28 @@
+﻿<h2 style="margin-top:25px;margin-bottom:25px;">SİPARİŞ YÖNETİMİ</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Sipariş No</td>
+            <td>Ödeme Tipi</td>
+            <td>Sipariş Tarihi</td>
+            <td>Sipariş Tutarı</td>
+            <td>Sipariş Durumu</td>
+            <td>İşlemler</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.CookieId</td>
+                <td>@item.PaymentType</td>
+                <td>@item.PaymentDate</td>
+                <td>@Convert.ToDecimal(item.TotalPrice).ToStirng("N")</td>
+                <td>@item.OrderStatus</td>
+                <td>
+                    <a href="/admin/SiparisYonetim/Detay/@item.CookieId" class="btn btn-primary">Güncelle</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

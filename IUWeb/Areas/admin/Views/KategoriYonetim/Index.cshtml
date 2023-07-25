@@ -1,0 +1,28 @@
+﻿<h2 style="margin-top:15px;margin-bottom:15px;">KATEGORİ YÖNETİMİ</h2>
+<a href="/admin/KategoriYonetim/Insert" class="btn btn-primary" style="margin-top:15px;">Yeni Ekle</a>
+
+<table class="table table-bordered" style="margin-top:15px;">
+
+    <thead>
+        <tr>
+            <td>id</td>
+            <td>Kategori</td>
+            <td>Bağlantı Olduğu Kategori</td>
+            <td>İşlemler</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.CategoryName</td>
+                <td>@item.SubCategory</td>
+                <td>
+                    <a href="/admin/KategoriYonetim/Update/@item.Id" class="btn btn-primary">Güncelle</a>
+                    <a href="/admin/KategoriYonetim/Delete/@item.Id" class="btn btn-danger">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

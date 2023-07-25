@@ -1,0 +1,36 @@
+﻿<h2 style="margin-bottom:15px;margin-top:15px;">ÜRÜN YÖNETİMİ</h2>
+
+<a href="/admin/UrunYonetim" class="btn btn-primary" style="margin-bottom:15px;">Geri Git</a>
+
+<form action="/admin/UrunYonetim/Insert" method="post" enctype="multipart/form-data" style="margin-top:25px;">
+    
+    <input type="text" class="form-control" name="ProductName" placeholder="Ürün Adı" style="margin-bottom:15px;" />
+    <input type="text" class="form-control" name="Price" placeholder="Ürün Fiyatı" style="margin-bottom:15px;" />
+    <input type="text" class="form-control" name="Stock" placeholder="Ürün Stok Bilgisi" style="margin-bottom:15px;" />
+
+    <textarea type="text" class="form-control" name="Explanation" placeholder="Ürün Açıklaması" style="margin-bottom:15px; height:250px;"></textarea>
+
+    Ana Resim :
+    <input type="file" class="form-control" name="Resim1" style="margin-bottom:15px;" />
+
+    Detay Resim:
+    <input type="file" class="form-control" name="Resim2" style="margin-bottom:15px;" />
+
+    Detay Resim:
+    <input type="file" class="form-control" name="Resim3" style="margin-bottom:15px;" />
+
+    Detay Resim:
+    <input type="file" class="form-control" name="Resim4" style="margin-bottom:15px;" />
+
+    <select class="form-control" style="margin-bottom:15px;" name="CategoriesId">
+        @foreach (var item in ViewBag.Kategoriler)
+        {
+            <option value="@item.id">@item.CategoryName</option>
+        }
+    </select>  
+    <button type="submit" class="btn btn-primary">Kaydet</button>
+</form>
+@if (ViewBag.Message != null)
+{
+    <div style="margin-top:15px;">@Html.Raw(ViewBag.Message)</div>
+}
